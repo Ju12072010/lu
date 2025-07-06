@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Para Lucía 💖</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', cursive, sans-serif;
+      background: #fff0f6;
+      color: #a3235a;
+      overflow-x: hidden;
+      text-align: center;
+      position: relative;
+      min-height: 100vh;
+    }
+
+    header {
+      padding: 50px 20px 10px;
+      position: relative;
+      z-index: 20;
+    }
+
+    header h1 {
+      font-size: 3em;
+      color: #d95c87; /* rosa pastel */
+      margin: 0;
+      text-shadow: 0 0 12px #d95c87, 0 0 25px #f5b3c4;
+    }
+
+    header p {
+      font-size: 1.2em;
+      color: #ca759a;
+      margin-bottom: 30px;
+      text-shadow: 0 0 6px #ca759a;
+    }
+
+    /* Decoraciones flotantes (corazones y flores) */
+    .decor {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 5;
+      overflow: visible;
+    }
+
+    .heart, .flower {
+      position: absolute;
+      opacity: 0.6;
+      animation: float 14s infinite ease-in-out;
+      user-select: none;
+    }
+
+    .heart {
+      width: 20px;
+      height: 20px;
+      background: #d95c87;
+      clip-path: polygon(50% 0%, 61% 16%, 79% 21%, 86% 40%, 75% 57%, 50% 100%, 25% 57%, 14% 40%, 21% 21%, 39% 16%);
+      box-shadow: 0 0 10px #d95c87;
+    }
+
+    .flower {
+      width: 25px;
+      height: 25px;
+      background: #f5b3c4;
+      border-radius: 50%;
+      box-shadow: 0 0 14px #f5b3c4;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(100vh) scale(1);
+        opacity: 0;
+      }
+      50% {
+        opacity: 0.7;
+      }
+      100% {
+        transform: translateY(-10vh) scale(1.3);
+        opacity: 0;
+      }
+    }
+
+    /* Letras flotantes de fondo (múltiples L y J) */
+    .background-letters {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      pointer-events: none;
+      z-index: 1;
+      overflow: hidden;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      align-content: space-around;
+      opacity: 0.3;
+      user-select: none;
+      filter: drop-shadow(0 0 8px #d95c87);
+    }
+    .background-letters span {
+      font-size: 10em;
+      font-weight: bold;
+      font-family: 'Segoe UI', cursive, sans-serif;
+      animation: floatLetter 20s ease-in-out infinite alternate;
+      text-shadow: 0 0 20px rgba(217, 92, 135, 0.8);
+      user-select: none;
+      color: #d95c87;
+      margin: 15px;
+      flex-shrink: 0;
+      opacity: 0.3;
+    }
+    .background-letters span.j {
+      animation-delay: 10s;
+    }
+
+    @keyframes floatLetter {
+      0% { transform: translateY(0) scale(1); opacity: 0.3;}
+      50% { transform: translateY(-50px) scale(1.2); opacity: 0.5;}
+      100% { transform: translateY(0) scale(1); opacity: 0.3;}
+    }
+
+    /* Carta y contenido */
+    .message {
+      position: relative;
+      z-index: 10;
+      max-width: 700px;
+      margin: 60px auto;
+      padding: 30px;
+      background: rgba(217, 92, 135, 0.1); /* rosa pastel transparente */
+      border-radius: 25px;
+      box-shadow: 0 0 40px rgba(217, 92, 135, 0.3);
+      color: #a3235a;
+      font-size: 1.2em;
+      line-height: 1.6;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(217, 92, 135, 0.3);
+    }
+
+    .message h2 {
+      color: #d95c87;
+      font-size: 2em;
+      margin-bottom: 15px;
+      text-shadow: 0 0 12px #d95c87;
+    }
+
+    .btn-love {
+      display: inline-block;
+      margin: 30px auto;
+      padding: 15px 30px;
+      font-size: 1.2em;
+      color: white;
+      background: #d95c87;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      box-shadow: 0 5px 20px rgba(217, 92, 135, 0.7);
+      transition: transform 0.2s, background 0.2s;
+      position: relative;
+      z-index: 10;
+    }
+    .btn-love:hover {
+      transform: scale(1.1);
+      background: #b44a6b;
+    }
+
+    /* Catálogo */
+    .catalog {
+      max-width: 900px;
+      margin: 50px auto 80px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 25px;
+      position: relative;
+      z-index: 10;
+    }
+    .card {
+      background: rgba(245, 179, 196, 0.3);
+      border-radius: 20px;
+      box-shadow: 0 5px 15px rgba(217, 92, 135, 0.3);
+      padding: 20px;
+      color: #a3235a;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: default;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid rgba(217, 92, 135, 0.15);
+    }
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 30px rgba(180, 74, 107, 0.5);
+    }
+    .card h3 {
+      margin-top: 0;
+      margin-bottom: 10px;
+      color: #d95c87;
+      font-size: 1.4em;
+      text-shadow: 0 0 8px #b44a6b;
+    }
+    .card p {
+      font-size: 1.1em;
+      margin: 0;
+      line-height: 1.4;
+    }
+
+    footer {
+      margin-top: 40px;
+      padding: 20px;
+      font-size: 1.2em;
+      color: #a3235a;
+      font-weight: bold;
+      text-shadow: 0 0 12px #d95c87;
+      position: relative;
+      z-index: 10;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="decor" aria-hidden="true">
+    <script>
+      const decorContainer = document.currentScript.parentNode;
+      for (let i = 0; i < 30; i++) {
+        const elem = document.createElement('div');
+        if (i % 3 === 0) {
+          elem.className = 'flower';
+        } else {
+          elem.className = 'heart';
+        }
+        elem.style.left = Math.random() * 100 + 'vw';
+        elem.style.top = Math.random() * 100 + 'vh';
+        elem.style.animationDelay = (Math.random() * 14) + 's';
+        decorContainer.appendChild(elem);
+      }
+    </script>
+  </div>
+
+  <div class="background-letters" aria-hidden="true" aria-label="Fondo decorativo de letras">
+    <!-- Letras L y J distribuidas -->
+    <span class="l">L</span>
+    <span class="j">J</span>
+    <span class="l">L</span>
+    <span class="j">J</span>
+    <span class="l">L</span>
+    <span class="j">J</span>
+    <span class="l">L</span>
+    <span class="j">J</span>
+    <span class="l">L</span>
+    <span class="j">J</span>
+    <span class="l">L</span>
+    <span class="j">J</span>
+    <span class="l">L</span>
+    <span class="j">J</span>
+    <span class="l">L</span>
+    <span class="j">J</span>
+  </div>
+
+  <header>
+    <h1>Para Lu 💕</h1>
+    <p>De tu novia que te ama muchisisisimo 🌈</p>
+  </header>
+
+  <div class="message">
+    <h2>Una cartita para vos 💌</h2>
+    <p>
+      Lu, esta carta que te mando por esta página web es algo cotidiana, pero voy a hacer que sea lo más linda posible. <br><br>
+      Desde que llegaste a mi vida soy más feliz. <br>
+      Sos la razón por la que amo los días de semana y odio los findes. <br>
+      Sos la razón por la que espero que terminen las vacaciones pronto para verte más seguido. <br>
+      Sos la razón de mi vida. <br><br>
+
+      Cuando estoy con vos todo tiene más sentido, cuando estamos juntas el tiempo pasa volando, <br>
+      y yo solo deseo que ese tiempo nunca termine. <br>
+      Cada latido de mi corazón te pertenece, cada palabra linda, todo te pertenece.<br><br>
+
+      Te amo como nunca amé a nadie. <br>
+      Sos la más linda, la más graciosa, la más boluda a veces 😅<br>
+      ¡Sos LO MÁS! <br><br>
+      Te amo con mi vida y mi corazón 💖
+    </p>
+  </div>
+
+  <button class="btn-love" onclick="alert('¡Yo te amo mucho mas mi vida hermosa 💘')">
+    Tocá acá si me amás
+  </button>
+
+ 
+ 
+
+  <footer>
+    Con todo mi amor, para siempre, tu novia la mas cool 💖
+  </footer>
+
+</body>
+</html>
